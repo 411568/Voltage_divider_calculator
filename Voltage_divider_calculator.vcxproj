@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="additionalFunctions.cpp" />
+    <ClCompile Include="VoltageDivider.cpp" />
     <ClCompile Include="Voltage_divider_calculator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="additionalFunctions.h" />
+    <ClInclude Include="VoltageDivider.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
