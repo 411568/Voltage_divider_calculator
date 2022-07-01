@@ -7,9 +7,14 @@
 class VoltageDivider
 {
 private:
+	std::vector<double> calculateRatio(std::vector<int>, double desiredRatio);
+
+
 	int inputVoltage;
 	int outputVoltage;
 	double ratio;
+	
+	//map of all the resistor values
 	const std::map<std::string, std::vector<int>> resistorValues
 	{
 		{"E3", {10, 22, 47}},
@@ -59,6 +64,8 @@ private:
 	};
 
 public:
-	VoltageDivider(const int inputV, const int outputV);
+	VoltageDivider(const double inputV, const double outputV);
+
+	std::vector<std::string> calculateValues();
 };
 

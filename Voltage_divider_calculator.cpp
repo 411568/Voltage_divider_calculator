@@ -10,37 +10,34 @@ int main()
 {
     //variables
     std::string inputString;
-    int inputVoltage{};
-    int outputVoltage{};
+    double inputVoltage{};
+    double outputVoltage{};
 
     //intro text
     std::cout << "Welcome to the voltage divider calculator!" << std::endl;
     std::cout << "Please enter the input voltage [V]: " << std::endl;
     std::cin >> inputString;
 
-    //check input
-    while (isNumber(inputString) == false)
-    {
-        std::cout << "Please enter a number [V]: " << std::endl;
-        std::cin >> inputString;
-    }
-
-    inputVoltage = stoi(inputString);
+    inputVoltage = stod(inputString);
     
     std::cout << "Please enter the desired output voltage [V]: " << std::endl;
     std::cin >> inputString;
 
-    //check input
-    while (isNumber(inputString) == false || stoi(inputString) >= inputVoltage)
-    {
-        std::cout << "Please enter a number [V]: " << std::endl;
-        std::cin >> inputString;
-    }
+    outputVoltage = stod(inputString);
 
-    outputVoltage = stoi(inputString);
+    std::cout << std::endl << std::endl;
 
     //main object that does the computations
     VoltageDivider VoltDiv(inputVoltage, outputVoltage);
+
+    //calculate and get all the values
+    std::vector<std::string> VoltDivOutput = VoltDiv.calculateValues();
+
+    //print the values for every series
+    for (auto line : VoltDivOutput)
+    {
+        std::cout << line << std::endl;
+    }
 
 
     return 0;
