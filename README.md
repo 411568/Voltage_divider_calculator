@@ -1,4 +1,4 @@
-# Voltage_dividel_calculator
+# Voltage_divider_calculator
 Author: Krzysztof Sikora
 
 This application is designed to calculate the resistor values from every E-series from E3 to E192 so that the output voltage
