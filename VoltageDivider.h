@@ -1,21 +1,24 @@
 #pragma once
 #include <map>
+#include <unordered_map>
 #include <vector>
 #include <string>
+#include <cmath>
 #include <cassert>
 
 class VoltageDivider
 {
 private:
-	std::vector<double> calculateRatio(std::vector<int>, double desiredRatio);
+	//find the best resistors and ratio
+	std::vector<double> calculateRatio(std::vector<int> resistors, double desiredRatio);
 
-
-	int inputVoltage;
-	int outputVoltage;
+	//input data
+	double inputVoltage;
+	double outputVoltage;
 	double ratio;
 	
 	//map of all the resistor values
-	const std::map<std::string, std::vector<int>> resistorValues
+	const std::unordered_map<std::string, std::vector<int>> resistorValues
 	{
 		{"E3", {10, 22, 47}},
 		{"E6", {10, 15, 22, 33, 47, 68}},

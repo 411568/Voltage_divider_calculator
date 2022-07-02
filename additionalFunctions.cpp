@@ -4,13 +4,26 @@
 bool isNumber(const std::string inStr)
 {
 	bool answer{ true };
+	int countDots{ 0 };
 
-	for (auto c : inStr)
+	for (int i = 0; i < inStr.length(); ++i)
 	{
-		if (isdigit(c) == false)
+		if (isdigit(inStr[i]) == false)
 		{
-			answer = false;
-			break;
+			if (i == 0)
+			{
+				answer = false;
+				break;
+			}
+			else if (countDots > 0)
+			{
+				answer = false;
+				break;
+			}
+			else if (inStr[i] == '.')
+			{
+				countDots++;
+			}
 		}
 	}
 

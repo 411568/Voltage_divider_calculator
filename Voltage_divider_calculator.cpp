@@ -18,14 +18,28 @@ int main()
     std::cout << "Please enter the input voltage [V]: " << std::endl;
     std::cin >> inputString;
 
+    //check input
+    while (isNumber(inputString) == false)
+    {
+        std::cout << "Please enter a valid value! " << std::endl;
+        std::cin >> inputString;
+    }
+
     inputVoltage = stod(inputString);
     
     std::cout << "Please enter the desired output voltage [V]: " << std::endl;
     std::cin >> inputString;
 
+    //check input
+    while (isNumber(inputString) == false || stod(inputString) > inputVoltage)
+    {
+        std::cout << "Please enter a valid value! " << std::endl;
+        std::cin >> inputString;
+    }
+
     outputVoltage = stod(inputString);
 
-    std::cout << std::endl << std::endl;
+    std::cout << std::endl;
 
     //main object that does the computations
     VoltageDivider VoltDiv(inputVoltage, outputVoltage);
